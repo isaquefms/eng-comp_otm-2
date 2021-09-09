@@ -1,0 +1,34 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="80" name="Python" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="publishing_company.apps.signatures.models.base.Log.objects" />
+          <option value="publishing_company.apps.core.models.base.Record.DoesNotExist" />
+          <option value="publishing_company.apps.core.models.base.Interpreter.objects" />
+          <option value="publishing_company.apps.core.models.base.Interpreter.MultipleObjectsReturned" />
+          <option value="publishing_company.apps.core.models.base.MusicalWork.objects" />
+          <option value="django.db.models.fields.related.ForeignKey.email" />
+          <option value="publishing_company.apps.core.models.base.Holder.DoesNotExist" />
+          <option value="publishing_company.apps.core.models.base.Holder.objects" />
+          <option value="publishing_company.apps.core.models.base.MusicalWork.holdermusicalwork_set" />
+          <option value="publishing_company.apps.core.models.base.HolderMusicalWork.objects" />
+          <option value="publishing_company.apps.core.models.base.TempRecord.objects" />
+          <option value="publishing_company.apps.core.models.base.TempMusicalWork.objects" />
+          <option value="publishing_company.apps.core.models.base.TempMusicalWork.tempholdermusicalwork_set" />
+          <option value="publishing_company.apps.financial.models.base.FinancialBatch.id" />
+          <option value="publishing_company.apps.retained.models.base.RetainedBatch.objects" />
+          <option value="publishing_company.apps.core.models.base.Batch.objects" />
+          <option value="publishing_company.apps.financial.models.base.Report.objects" />
+          <option value="publishing_company.apps.financial.models.base.ReportTempItem.objects" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
