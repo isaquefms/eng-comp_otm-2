@@ -7,14 +7,27 @@
     acordo com a necessidade de atendimento do usuário. Sendo assim, o mecanismo de atendimento suporta apenas um
     usuário por vez.
 
-    Um sistema M/M/s foi modelado para esse problema tendo como base um minuto como unidade de tempo. Sendo assim, temos
+    Um sistema M/M/1 foi modelado para esse problema tendo como base um minuto como unidade de tempo. Sendo assim, temos
     lambda igual a 1 e mi igual a 2, ou seja, temos a chegada de 1 cliente em média a cada um minuto e o atendimento de
-     2 clientes por minuto em média. 1/lambda = 1/1 e 1/mi = 1/2.
+     2 clientes por minuto em média. 1/lambda = 1/1 e 1/mi = 1/2. Foi usado como base distribuições exponenciais.
 
     Modelos:
+        - Client: Modelo de um usuário do sistema de atendimento.
         - Fila: Modelo da fila que recebe um usuário e o insere na posição devida.
         - Mecanismo de atendimento: Modelo que recebendo um usuário executa a ação de atendimento.
         - Sistema de filas: Interação entre a Fila e o Mecanismo de Atendimento.
+
+    Apresentação:
+        - Caracterizar o problema
+            Problema do atendimento de clientes em guichê de emissão de senhas.
+        - Modelo de chegada e de atendimento, quantidades
+            Distribuições exponenciais ou distribuição markoviana.
+        - Número de servidores.
+            1 Servidor.
+        - Disciplina da fila
+            FIFO
+        - Implementação
+            Utilizando Python
 """
 import itertools
 from typing import List
@@ -24,8 +37,10 @@ import numpy
 # Constantes
 LAMBDA = 2
 MI = 1
-ALPHA = 1/LAMBDA
-BETA = 1/MI
+# Devido a implementação do numpy da distribuição exponencial, precisamos modificar as constantes para que o
+#   funcionamento ocorra como esperado. Lambda = mi e mi = lambda.
+ALPHA = 1 / LAMBDA
+BETA = 1 / MI
 
 
 class Client:
@@ -62,7 +77,7 @@ class Queue:
         self._queue_length.append(len(self._queue))
 
     def get_mean_queue_length(self) -> None:
-        return sum(self._queue_length)/len(self._queue_length)
+        return sum(self._queue_length) / len(self._queue_length)
 
     def populate_queue(self, client_length: int) -> None:
         """Realiza o preenchimento da fila.
@@ -170,12 +185,13 @@ class QueueSystem:
         print(f'Duração da simulação: {self._t} minutos')
         print(f'Número de clientes atendidos/Número de Tarefas'
               f' realizadas: {self._service_mechanism.get_clients_served_length()}')
-        print(f'Duração média de uma tarefa: {round(self._t/self._service_mechanism.get_clients_served_length(), 2)} '
+        print(f'Duração média de uma tarefa: {round(self._t / self._service_mechanism.get_clients_served_length(), 2)} '
               f'minutos')
         print(f'Tempo médio de espera médio de '
-              f'uma tarefa: {round(self._service_mechanism.get_hold_total_time()/self._service_mechanism.get_clients_served_length(), 2)} minutos')
+              f'uma tarefa: {round(self._service_mechanism.get_hold_total_time() / self._service_mechanism.get_clients_served_length(), 2)} minutos')
         total_time = self._t + self._service_mechanism.get_hold_total_time()
-        print(f'Tempo total médio de uma tarefa: {round(total_time/self._service_mechanism.get_clients_served_length(), 2)} minutos')
+        print(
+            f'Tempo total médio de uma tarefa: {round(total_time / self._service_mechanism.get_clients_served_length(), 2)} minutos')
         print(f'Tamanho médio da fila: {self._queue.get_mean_queue_length()}')
 
 
