@@ -1,7 +1,10 @@
 # Simulação de Filas Markovianas
 
 ## Instruções para execução
+No diretório do trabalho.
+
 ```bash
+python3 -m venv venv
 pip install -r requirements.txt
 python main.py
 ```
