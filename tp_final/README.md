@@ -15,4 +15,4 @@ python main.py
 Simulação de 7 execuções com os valores de `MI` igual a 2 e `LAMBDA` igual a 1.
 
 ## Vídeo de apresentação
-![Link da Apresentação](https://youtu.be/HOpd0kfmwUU)
+[Link da Apresentação](https://youtu.be/HOpd0kfmwUU)
